@@ -16,7 +16,7 @@
     
     
       
-        <title>Лабораторная работа 1: FastAPI - My Site</title>
+        <title>Hackathon Management System API Documentation - My Site</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-fastapi" class="md-skip">
+        <a href="#hackathon-management-system-api-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Лабораторная работа 1: FastAPI
+              Hackathon Management System API Documentation
             
           </span>
         </div>
@@ -249,16 +249,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Цели
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Реализованные endpoints
+      Описание системы
     </span>
   </a>
   
@@ -267,9 +258,129 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Пример кода
+      Сущности системы
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Сущности системы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Пользователь (User)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Команда (Team)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-userteam" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Участник команды (UserTeam)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Задача (Task)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Работа (Work)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Оценка (Evaluation)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRUD операции
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CRUD операции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пользователи
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Команды
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Задачи
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Работы
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Оценки
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -288,39 +399,247 @@
                   
 
 
-<h1 id="1-fastapi">Лабораторная работа 1: FastAPI</h1>
-<h2 id="_1">Цели</h2>
-<ul>
-<li>Реализация серверного приложения</li>
-<li>Работа с CRUD операциями</li>
-</ul>
-<h2 id="endpoints">Реализованные endpoints</h2>
+<h1 id="hackathon-management-system-api-documentation">Hackathon Management System API Documentation</h1>
+<h2 id="_1">Описание системы</h2>
+<p>Система для организации и проведения хакатонов с функционалом:
+- Регистрация участников
+- Формирование команд
+- Публикация задач
+- Оценка работ</p>
+<h2 id="_2">Сущности системы</h2>
+<h3 id="1-user">1. Пользователь (User)</h3>
+<p><strong>Поля:</strong>
+- <code>id</code> - уникальный идентификатор
+- <code>name</code> - имя пользователя
+- <code>email</code> - электронная почта (уникальное)
+- <code>phone</code> - контактный телефон
+- <code>skills</code> - навыки (строка)</p>
+<h3 id="2-team">2. Команда (Team)</h3>
+<p><strong>Поля:</strong>
+- <code>id</code> - уникальный идентификатор
+- <code>name</code> - название команды
+- <code>description</code> - описание команды</p>
+<h3 id="3-userteam">3. Участник команды (UserTeam)</h3>
+<p><strong>Поля:</strong>
+- <code>user_id</code> - ID пользователя
+- <code>team_id</code> - ID команды
+- <code>role</code> - роль в команде</p>
+<h3 id="4-task">4. Задача (Task)</h3>
+<p><strong>Поля:</strong>
+- <code>id</code> - уникальный идентификатор
+- <code>description</code> - описание задачи
+- <code>requirements</code> - требования
+- <code>evaluation_criteria</code> - критерии оценки</p>
+<h3 id="5-work">5. Работа (Work)</h3>
+<p><strong>Поля:</strong>
+- <code>id</code> - уникальный идентификатор
+- <code>task_id</code> - ID задачи
+- <code>team_id</code> - ID команды
+- <code>file</code> - ссылка на файл работы</p>
+<h3 id="6-evaluation">6. Оценка (Evaluation)</h3>
+<p><strong>Поля:</strong>
+- <code>id</code> - уникальный идентификатор
+- <code>work_id</code> - ID работы
+- <code>score</code> - баллы
+- <code>feedback</code> - обратная связь</p>
+<h2 id="crud">CRUD операции</h2>
+<h3 id="_3">Пользователи</h3>
 <table>
 <thead>
 <tr>
 <th>Метод</th>
 <th>Путь</th>
 <th>Описание</th>
+<th>Тело запроса</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>GET</td>
-<td>/users</td>
-<td>Получение всех пользователей</td>
+<td><code>/users</code></td>
+<td>Получить всех пользователей</td>
+<td>-</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/user/{user_id}</code></td>
+<td>Получить пользователя по ID</td>
+<td>-</td>
 </tr>
 <tr>
 <td>POST</td>
-<td>/users</td>
-<td>Создание пользователя</td>
+<td><code>/user</code></td>
+<td>Создать нового пользователя</td>
+<td><code>{"name": "string", "email": "string", "phone": "string", "skills": "string"}</code></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/user/{user_id}</code></td>
+<td>Обновить данные пользователя</td>
+<td>Частичные данные</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/user/{user_id}</code></td>
+<td>Удалить пользователя</td>
+<td>-</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_2">Пример кода</h2>
-<p>```python
-@app.get("/users")
-def get_users():
-    return {"message": "All users"}</p>
+<h3 id="_4">Команды</h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+<th>Тело запроса</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/teams</code></td>
+<td>Получить все команды</td>
+<td>-</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/team/{team_id}</code></td>
+<td>Получить команду по ID</td>
+<td>-</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/team</code></td>
+<td>Создать новую команду</td>
+<td><code>{"name": "string", "description": "string"}</code> + список участников</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/team/{team_id}</code></td>
+<td>Обновить данные команды</td>
+<td>Частичные данные</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/team/{team_id}</code></td>
+<td>Удалить команду</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">Задачи</h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+<th>Тело запроса</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/tasks</code></td>
+<td>Получить все задачи</td>
+<td>-</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/task/{task_id}</code></td>
+<td>Получить задачу по ID</td>
+<td>-</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/task</code></td>
+<td>Создать новую задачу</td>
+<td><code>{"description": "string", "requirements": "string", "evaluation_criteria": "string"}</code></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/task/{task_id}</code></td>
+<td>Обновить задачу</td>
+<td>Частичные данные</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/task/{task_id}</code></td>
+<td>Удалить задачу</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">Работы</h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+<th>Тело запроса</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/works</code></td>
+<td>Получить все работы</td>
+<td>-</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/work/{work_id}</code></td>
+<td>Получить работу по ID</td>
+<td>-</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/work</code></td>
+<td>Добавить работу</td>
+<td><code>{"task_id": int, "team_id": int, "file": "string"}</code></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/work/{work_id}</code></td>
+<td>Обновить работу</td>
+<td>Частичные данные</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/work/{work_id}</code></td>
+<td>Удалить работу</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">Оценки</h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+<th>Тело запроса</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/evaluation/{evaluation_id}</code></td>
+<td>Получить оценку по ID</td>
+<td>-</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/evaluation</code></td>
+<td>Добавить оценку</td>
+<td><code>{"work_id": int, "score": int, "feedback": "string"}</code></td>
+</tr>
+</tbody>
+</table>
 
 
 
