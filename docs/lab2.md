@@ -203,8 +203,9 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-# Async time: 0.84 seconds
-
+```
+ Async time: 0.70 seconds
+```
 
 ### Multipricessing:
 ```python
@@ -244,8 +245,9 @@ if __name__ == "__main__":
     main()
 ```
 
-# Multiprocessing time: 1.61 seconds
-
+```
+ Multiprocessing time: 1.61 seconds
+```
 ### Threading:
 
 ```python
@@ -292,4 +294,6 @@ if __name__ == "__main__":
     main()
 ```
 
-# Threading time: 0.62 seconds
+```
+ Threading time: 0.90 seconds
+```
