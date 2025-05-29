@@ -316,6 +316,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#multipricessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multipricessing:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threading_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Threading:
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -535,7 +553,8 @@ async def main():
 if __name__ == &quot;__main__&quot;:
     asyncio.run(main())
 </code></pre>
-<h1 id="async-time-084-seconds">Async time: 0.84 seconds</h1>
+<pre><code> Async time: 0.70 seconds
+</code></pre>
 <h3 id="multipricessing">Multipricessing:</h3>
 <pre><code class="language-python">from multiprocessing import Pool
 import time
@@ -572,7 +591,8 @@ def main():
 if __name__ == &quot;__main__&quot;:
     main()
 </code></pre>
-<h1 id="multiprocessing-time-161-seconds">Multiprocessing time: 1.61 seconds</h1>
+<pre><code> Multiprocessing time: 1.61 seconds
+</code></pre>
 <h3 id="threading_1">Threading:</h3>
 <pre><code class="language-python">import threading
 import time
@@ -616,7 +636,8 @@ def main():
 if __name__ == &quot;__main__&quot;:
     main()
 </code></pre>
-<h1 id="threading-time-062-seconds">Threading time: 0.62 seconds</h1>
+<pre><code> Threading time: 0.90 seconds
+</code></pre>
 
 
 
