@@ -315,66 +315,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#crud" class="md-nav__link">
-    <span class="md-ellipsis">
-      CRUD операции
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CRUD операции">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Пользователи
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Команды
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Задачи
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Работы
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      Оценки
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -428,204 +368,227 @@
 - <code>work_id</code> - ID работы
 - <code>score</code> - баллы
 - <code>feedback</code> - обратная связь</p>
-<h2 id="crud">CRUD операции</h2>
-<h3 id="_3">Пользователи</h3>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Путь</th>
-<th>Описание</th>
-<th>Тело запроса</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td><code>/users</code></td>
-<td>Получить всех пользователей</td>
-<td>-</td>
-</tr>
-<tr>
-<td>GET</td>
-<td><code>/user/{user_id}</code></td>
-<td>Получить пользователя по ID</td>
-<td>-</td>
-</tr>
-<tr>
-<td>POST</td>
-<td><code>/user</code></td>
-<td>Создать нового пользователя</td>
-<td><code>{"name": "string", "email": "string", "phone": "string", "skills": "string"}</code></td>
-</tr>
-<tr>
-<td>PATCH</td>
-<td><code>/user/{user_id}</code></td>
-<td>Обновить данные пользователя</td>
-<td>Частичные данные</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td><code>/user/{user_id}</code></td>
-<td>Удалить пользователя</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_4">Команды</h3>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Путь</th>
-<th>Описание</th>
-<th>Тело запроса</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td><code>/teams</code></td>
-<td>Получить все команды</td>
-<td>-</td>
-</tr>
-<tr>
-<td>GET</td>
-<td><code>/team/{team_id}</code></td>
-<td>Получить команду по ID</td>
-<td>-</td>
-</tr>
-<tr>
-<td>POST</td>
-<td><code>/team</code></td>
-<td>Создать новую команду</td>
-<td><code>{"name": "string", "description": "string"}</code> + список участников</td>
-</tr>
-<tr>
-<td>PATCH</td>
-<td><code>/team/{team_id}</code></td>
-<td>Обновить данные команды</td>
-<td>Частичные данные</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td><code>/team/{team_id}</code></td>
-<td>Удалить команду</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_5">Задачи</h3>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Путь</th>
-<th>Описание</th>
-<th>Тело запроса</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td><code>/tasks</code></td>
-<td>Получить все задачи</td>
-<td>-</td>
-</tr>
-<tr>
-<td>GET</td>
-<td><code>/task/{task_id}</code></td>
-<td>Получить задачу по ID</td>
-<td>-</td>
-</tr>
-<tr>
-<td>POST</td>
-<td><code>/task</code></td>
-<td>Создать новую задачу</td>
-<td><code>{"description": "string", "requirements": "string", "evaluation_criteria": "string"}</code></td>
-</tr>
-<tr>
-<td>PATCH</td>
-<td><code>/task/{task_id}</code></td>
-<td>Обновить задачу</td>
-<td>Частичные данные</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td><code>/task/{task_id}</code></td>
-<td>Удалить задачу</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_6">Работы</h3>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Путь</th>
-<th>Описание</th>
-<th>Тело запроса</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td><code>/works</code></td>
-<td>Получить все работы</td>
-<td>-</td>
-</tr>
-<tr>
-<td>GET</td>
-<td><code>/work/{work_id}</code></td>
-<td>Получить работу по ID</td>
-<td>-</td>
-</tr>
-<tr>
-<td>POST</td>
-<td><code>/work</code></td>
-<td>Добавить работу</td>
-<td><code>{"task_id": int, "team_id": int, "file": "string"}</code></td>
-</tr>
-<tr>
-<td>PATCH</td>
-<td><code>/work/{work_id}</code></td>
-<td>Обновить работу</td>
-<td>Частичные данные</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td><code>/work/{work_id}</code></td>
-<td>Удалить работу</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_7">Оценки</h3>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Путь</th>
-<th>Описание</th>
-<th>Тело запроса</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td><code>/evaluation/{evaluation_id}</code></td>
-<td>Получить оценку по ID</td>
-<td>-</td>
-</tr>
-<tr>
-<td>POST</td>
-<td><code>/evaluation</code></td>
-<td>Добавить оценку</td>
-<td><code>{"work_id": int, "score": int, "feedback": "string"}</code></td>
-</tr>
-</tbody>
-</table>
+<pre><code>from fastapi import FastAPI, Depends, HTTPException, status
+from sqlmodel import Session, select
+from typing import List, Annotated
+from typing_extensions import TypedDict
+from connection import get_session, init_db
+from models import User, Team, UserTeam, Task, Work, Evaluation, TaskDefault, TeamDefault, UserDefault, WorkDefault
+
+app = FastAPI()
+
+
+@app.on_event(&quot;startup&quot;)
+def on_startup():
+    init_db()
+
+@app.get(&quot;/users&quot;, response_model=List[User])
+def read_users(session: Session = Depends(get_session)):
+
+    return session.exec(select(User)).all()
+
+@app.get(&quot;/teams&quot;, response_model=List[Team])
+def get_teams(session: Session = Depends(get_session)):
+
+    return session.exec(select(Team)).all()
+
+@app.get(&quot;/tasks&quot;, response_model=List[Task])
+def get_tasks(session: Session = Depends(get_session)):
+
+    return session.exec(select(Task)).all()
+
+@app.get(&quot;/works&quot;, response_model=List[Work])
+def get_works(session: Session = Depends(get_session)):
+
+    return session.exec(select(Work)).all()
+
+@app.get(&quot;/user/{user_id}&quot;, response_model=User)
+def get_user(user_id: int, session: Session = Depends(get_session)):
+
+    user = session.get(User, user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail=&quot;User not found&quot;)
+    return user
+
+
+@app.get(&quot;/team/{team_id}&quot;, response_model=Team)
+def get_team(team_id: int, session: Session = Depends(get_session)):
+
+    team = session.get(Team, team_id)
+    if not team:
+        raise HTTPException(status_code=404, detail=&quot;Team not found&quot;)
+    return team
+
+@app.get(&quot;/work/{work_id}&quot;, response_model=Work)
+def get_work(work_id: int, session: Session = Depends(get_session)):
+
+    work = session.get(Work, work_id)
+    if not work:
+        raise HTTPException(status_code=404, detail=&quot;work not found&quot;)
+    return work
+
+@app.get(&quot;/task/{task_id}&quot;, response_model=Task)
+def get_task(task_id: int, session: Session = Depends(get_session)):
+
+    task = session.get(Task, task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail=&quot;Task not found&quot;)
+    return task
+
+@app.post(&quot;/user&quot;)
+def create_user(user: UserDefault, session: Session = Depends(get_session)) -&gt; TypedDict('Response', {&quot;status&quot;: int, &quot;data&quot;: User}):
+    user = Task.model_validate(user)
+    session.add(user)
+    session.commit()
+    session.refresh(user)
+    return {&quot;status&quot;: 200, &quot;data&quot;: user}
+
+
+@app.post(&quot;/team&quot;)
+def create_team(team: TeamDefault, session: Session = Depends(get_session)) -&gt; TypedDict('Response', {&quot;status&quot;: int, &quot;data&quot;: Team}):
+    team = Task.model_validate(team)
+    session.add(team)
+    session.commit()
+    session.refresh(team)
+    return {&quot;status&quot;: 200, &quot;data&quot;: team}
+
+@app.post(&quot;/work&quot;)
+def create_team(work: WorkDefault, session: Session = Depends(get_session)) -&gt; TypedDict('Response', {&quot;status&quot;: int, &quot;data&quot;: Work}):
+    work = Task.model_validate(work)
+    session.add(work)
+    session.commit()
+    session.refresh(work)
+    return {&quot;status&quot;: 200, &quot;data&quot;: work}
+
+
+@app.post(&quot;/task&quot;)
+def create_task(task: TaskDefault, session: Session = Depends(get_session)) -&gt; TypedDict('Response', {&quot;status&quot;: int, &quot;data&quot;: Task}):
+
+    task = Task.model_validate(task)
+    session.add(task)
+    session.commit()
+    session.refresh(task)
+    return {&quot;status&quot;: 200, &quot;data&quot;: task}
+
+@app.patch(&quot;/user{user_id}&quot;)
+def user_update(user_id: int, user: UserDefault, session=Depends(get_session)) -&gt; UserDefault:
+    db_user = session.get(User, user_id)
+    if not db_user:
+        raise HTTPException(status_code=404, detail=&quot;user not found&quot;)
+    user_data = user.model_dump(exclude_unset=True)
+    for key, value in user_data.items():
+        setattr(db_user, key, value)
+    session.add(db_user)
+    session.commit()
+    session.refresh(db_user)
+    return db_user
+
+
+@app.patch(&quot;/work{work_id}&quot;)
+def work_update(work_id: int, work: WorkDefault, session=Depends(get_session)) -&gt; WorkDefault:
+    db_work = session.get(User, work_id)
+    if not db_work:
+        raise HTTPException(status_code=404, detail=&quot;work not found&quot;)
+    work_data = work.model_dump(exclude_unset=True)
+    for key, value in work_data.items():
+        setattr(db_work, key, value)
+    session.add(db_work)
+    session.commit()
+    session.refresh(db_work)
+    return db_work
+
+
+@app.patch(&quot;/task{task_id}&quot;)
+def task_update(task_id: int, task: TaskDefault, session=Depends(get_session)) -&gt; TaskDefault:
+    db_task = session.get(Task, task_id)
+    if not db_task:
+        raise HTTPException(status_code=404, detail=&quot;task not found&quot;)
+    task_data = task.model_dump(exclude_unset=True)
+    for key, value in task_data.items():
+        setattr(db_task, key, value)
+    session.add(db_task)
+    session.commit()
+    session.refresh(db_task)
+    return db_task
+
+
+@app.patch(&quot;/team{team_id}&quot;)
+def team_update(team_id: int, team: TeamDefault, session=Depends(get_session)) -&gt; TeamDefault:
+    db_team = session.get(Team, team_id)
+    if not db_team:
+        raise HTTPException(status_code=404, detail=&quot;team not found&quot;)
+    team_data = team.model_dump(exclude_unset=True)
+    for key, value in team_data.items():
+        setattr(db_team, key, value)
+    session.add(db_team)
+    session.commit()
+    session.refresh(db_team)
+    return db_team
+
+@app.delete(&quot;/user/{user_id}&quot;)
+def delete_user(user_id: int, session: Session = Depends(get_session)):
+
+    user = session.get(User, user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail=&quot;User not found&quot;)
+    session.delete(user)
+    session.commit()
+    return {&quot;ok&quot;: True}
+
+
+@app.delete(&quot;/team/{team_id}&quot;)
+def delete_team(team_id: int, session: Session = Depends(get_session)):
+
+    team = session.get(Team, team_id)
+    if not team:
+        raise HTTPException(status_code=404, detail=&quot;Team not found&quot;)
+    session.delete(team)
+    session.commit()
+    return {&quot;ok&quot;: True}
+
+@app.delete(&quot;/task/{task_id}&quot;)
+def delete_task(task_id: int, session: Session = Depends(get_session)):
+
+    task = session.get(Task, task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail=&quot;task not found&quot;)
+    session.delete(task)
+    session.commit()
+    return {&quot;ok&quot;: True}
+
+@app.delete(&quot;/work/{work_id}&quot;)
+def delete_work(work_id: int, session: Session = Depends(get_session)):
+
+    work = session.get(Work, work_id)
+    if not work:
+        raise HTTPException(status_code=404, detail=&quot;work not found&quot;)
+    session.delete(work)
+    session.commit()
+    return {&quot;ok&quot;: True}
+</code></pre>
+<pre><code>from fastapi import Depends
+from sqlmodel import SQLModel, Session, create_engine
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+db_url = os.getenv('DB_URL')
+
+if not db_url:
+    raise ValueError(&quot;DB_URL не установлен в .env файле&quot;)
+
+engine = create_engine(db_url, echo=True)
+
+
+def init_db():
+    SQLModel.metadata.create_all(engine)
+
+
+def get_session():
+    with Session(engine) as session:
+        yield session
+</code></pre>
 
 
 
