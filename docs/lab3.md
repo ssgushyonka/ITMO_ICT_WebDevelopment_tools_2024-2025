@@ -33,46 +33,86 @@ Developing a FastAPI Application in a Docker Container
 Зачем: Это позволит интегрировать функциональность парсера в ваше веб-приложение, предоставляя возможность пользователям запускать парсинг через API.
 
 docker-compose file
-```
-services:
-  web:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-    command: uvicorn main:app --host 0.0.0.0 --port 8000
-    environment:
-      PYTHONPATH: /app
 
+```
+version: "3.8"
+
+services:
   db:
-    image: postgres:17
+    image: postgres:14
+    container_name: hackathon_postgres
+    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_DB: hackathon_db
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  hackathon:
+    build:
+      context: ./hackathon
+      dockerfile: Dockerfile
+    container_name: hackathon_app
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - ./hackathon/.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./hackathon:/app
+    command: ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
   parser:
     build:
       context: ./parser
-      dockerfile: Dockerfile.async
+      dockerfile: Dockerfile
     container_name: parser_app
     depends_on:
       - db
+    env_file:
+      - ./parser/task2/.env
     ports:
       - "9000:9000"
     volumes:
       - ./parser:/parser
-    command: [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "9000" ]
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "9000"]
+
+  celery_worker:
+    build:
+      context: ./hackathon
+      dockerfile: Dockerfile
+    container_name: celery_worker
+    depends_on:
+      - redis
+      - hackathon
+    command: ["celery", "-A", "celery_worker", "worker", "--loglevel=info"]
+    volumes:
+      - ./hackathon:/app
+    environment:
+      - CELERY_BROKER=redis://redis:6379/0
+      - CELERY_BACKEND=redis://redis:6379/0
 
 volumes:
   postgres_data:
 ```
+
 ![Описание](swaggerScreen.png)
+
+![Описание](lab31.jpg)
+![Описание](lab32.jpg)
+![Описание](lab33.jpg)
+
+
 
