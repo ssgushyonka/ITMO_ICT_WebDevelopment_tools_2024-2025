@@ -108,8 +108,6 @@ volumes:
   postgres_data:
 ```
 
-![Описание](swaggerScreen.png)
-
 ![Описание](lab31.jpg)
 ![Описание](lab32.jpg)
 ![Описание](lab33.jpg)
