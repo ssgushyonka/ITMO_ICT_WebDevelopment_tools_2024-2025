@@ -285,47 +285,82 @@ Developing a FastAPI Application in a Docker Container
 Необходимо добавить в FastAPI приложение ендпоинт, который будет принимать запросы с URL для парсинга от клиента, отправлять запрос парсеру (запущенному в отдельном контейнере) и возвращать ответ с результатом клиенту.
 Зачем: Это позволит интегрировать функциональность парсера в ваше веб-приложение, предоставляя возможность пользователям запускать парсинг через API.</p>
 <p>docker-compose file</p>
-<pre><code>services:
-  web:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
-    ports:
-      - &quot;8000:8000&quot;
-    depends_on:
-      - db
-    command: uvicorn main:app --host 0.0.0.0 --port 8000
-    environment:
-      PYTHONPATH: /app
+<pre><code>version: &quot;3.8&quot;
 
+services:
   db:
-    image: postgres:17
+    image: postgres:14
+    container_name: hackathon_postgres
+    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_DB: hackathon_db
     ports:
       - &quot;5432:5432&quot;
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: always
+    ports:
+      - &quot;6379:6379&quot;
+
+  hackathon:
+    build:
+      context: ./hackathon
+      dockerfile: Dockerfile
+    container_name: hackathon_app
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - ./hackathon/.env
+    ports:
+      - &quot;8000:8000&quot;
+    volumes:
+      - ./hackathon:/app
+    command: [&quot;uvicorn&quot;, &quot;app:app&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;, &quot;--port&quot;, &quot;8000&quot;, &quot;--reload&quot;]
 
   parser:
     build:
       context: ./parser
-      dockerfile: Dockerfile.async
+      dockerfile: Dockerfile
     container_name: parser_app
     depends_on:
       - db
+    env_file:
+      - ./parser/task2/.env
     ports:
       - &quot;9000:9000&quot;
     volumes:
       - ./parser:/parser
-    command: [ &quot;uvicorn&quot;, &quot;main:app&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;, &quot;--port&quot;, &quot;9000&quot; ]
+    command: [&quot;uvicorn&quot;, &quot;main:app&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;, &quot;--port&quot;, &quot;9000&quot;]
+
+  celery_worker:
+    build:
+      context: ./hackathon
+      dockerfile: Dockerfile
+    container_name: celery_worker
+    depends_on:
+      - redis
+      - hackathon
+    command: [&quot;celery&quot;, &quot;-A&quot;, &quot;celery_worker&quot;, &quot;worker&quot;, &quot;--loglevel=info&quot;]
+    volumes:
+      - ./hackathon:/app
+    environment:
+      - CELERY_BROKER=redis://redis:6379/0
+      - CELERY_BACKEND=redis://redis:6379/0
 
 volumes:
   postgres_data:
 </code></pre>
 <p><img alt="Описание" src="../swaggerScreen.png" /></p>
+<p><img alt="Описание" src="../lab31.jpg" />
+<img alt="Описание" src="../lab32.jpg" />
+<img alt="Описание" src="../lab33.jpg" /></p>
 
 
 
